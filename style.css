@@ -122,6 +122,8 @@ body {
       "main" auto
       "article" auto /
       600px;
+      border: 2px;
+      border-color: white;
   }
   /* home ***************************************************/  
   .home {
@@ -140,23 +142,31 @@ body {
     width:25px;
     justify-self:right;
   }
+   /* article ************************************************** */
   .article{
     grid-area: article;
-    display-grid:
+    display: grid;
     grid-template:
-    
-
+    "channel-icon profile-name profile-address" 20px
+    "channel-icon channel-text" auto
+    " . channel-video" auto
+    " . article-icons" auto/
+     40px 560px;
   }
+  .article-icons{
+    grid-area: article-icons;
+    display: grid;
+    grid-template:
+    " quote-icon retweet-icon like-icon share-icon" 40px/
+      40px 40px 40px 40px; 
+}
+
   /* main *************************************************** */
   .main {
     grid-area: main;
     background-color: #10abe950;
   }
   /* article ************************************************** */
- .article {
-    grid-area: article;
-    background-color: #1026e950;
-  }
 
   /* Right Column ********************************************** 
    search ********************************* 
