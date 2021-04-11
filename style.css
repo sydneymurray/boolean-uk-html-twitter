@@ -1,0 +1,240 @@
+body {
+    background: black;
+    color:white;
+  }
+  * {
+    margin: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+  }
+  .twitter {
+    display: grid;
+    grid-template:
+      ". left-column middle-column right-column" auto /
+      60px 275px 600px 405px;
+    width: 1280px;
+    height: 100vh;
+  }
+
+/* Left Column ********************************************/
+.left-column{
+    grid-area: left-column;
+    display: grid;
+    grid-template:
+    "menu" auto
+    " . " 1fr 
+    "profile" 60px/
+     1fr;
+    }  
+/* menu ***************************************************/  
+  .menu {
+    grid-area: menu;
+    display: grid;
+    justify-items:left;
+    }
+
+  .main-menu{
+    grid-area:main-menu-icons;
+    display:grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.0rem;
+    color: lightgray;
+    justify-self:left;
+  }
+  .selected-icon{
+    fill:blue;
+    width:30px;
+  }
+  .main-menu-icons {
+    fill:grey;
+    width:30px;
+  }
+  .menu-item {
+    justify-self:left;
+    align-self:bottom;
+    padding-top:5px; 
+  }
+  .main-menu-tweet{
+    grid-area:main-menu-icons;
+    display:grid;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 2em;
+    background-color:rgb(29,161,242);
+    width: 20ch;
+  }
+
+  /* Profile *************************************** */
+  .profile{
+    grid-area: profile;
+    display: grid;
+    grid-template: 
+    "profile-pic profile-name profiledots" 20px
+    "profile-pic profile-address ." 20px /
+    auto auto auto;
+    height: 50px;
+    background-color: black;
+    padding-bottom: 20px;
+    align-self:top;
+    margin-bottom:500px;
+  }
+  .profile-pic{ 
+    grid-area: profile-pic;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0px 0px;
+    background-color: black;
+    justify-self: center;
+  }
+  .profile-dots{
+      grid-area:profile-dots;
+      width: 40px;
+      height: 40px;
+      background-color: black;
+  }
+  .profile-address{
+      grid-area: profile-address;
+      background-color: black;
+      justify-self:left;
+  }
+  .profile-name{
+      grid-area: profile-name;
+      background-color: black;
+      justify-self: left;
+      font-weight: bold;
+  }
+
+  /* Middle Column *****************************************/
+  .middle-column{
+      grid-area: middle-column;
+      display:grid;
+      grid-template:
+      "home" 40px 
+      "main" auto
+      "article" auto /
+      600px;
+  }
+  /* home ***************************************************/  
+  .home {
+    grid-area: home;
+    display: grid;
+    grid-template:
+    "home-text . home-star" 40px/
+     6ch 1fr 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.1rem;
+    color: white;
+    }
+.home-star{
+    fill:rgb(29,161,242);
+    width:25px;
+    justify-self:right;
+  }
+  .article{
+    grid-area: article;
+    display-grid:
+    grid-template:
+    
+
+  }
+  /* main *************************************************** */
+  .main {
+    grid-area: main;
+    background-color: #10abe950;
+  }
+  /* article ************************************************** */
+ .article {
+    grid-area: article;
+    background-color: #1026e950;
+  }
+
+  /* Right Column ********************************************** 
+   search ********************************* 
+  .search {
+    grid-area: search;
+    background-color: #c1e91050;
+  }
+  /* whats happening ***************************************************
+  .whats-happening {
+    grid-area: whats-happening;
+    background-color: #ac10e950;
+  }
+
+  /* who to follow *************************************************** 
+  .who-to-follow {
+    grid-area: who-to-follow;
+    background-color: #e910e950;
+  }
+  /* terms of service **************************************************** 
+  .terms-of-service {
+    grid-area: terms-of-service;
+    background-color: #1026e950;
+  }
+ 
+  
+  @media screen and (max-width: 900px) {
+    .linkedin {
+      grid-template:
+        "menu menu " 40px
+        "profile startpost" 100px
+        "profile main" 100px
+        "notifications main" 200px
+        "recent main" 1fr /
+        160px minmax(180px, 1fr);
+    }
+    .news,
+    .courses,
+    .addfeed {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .linkedin {
+      grid-template:
+        "menu " 40px
+        "startpost" 100px
+        "main" 100px
+        "main" 200px
+        "main" 1fr /
+        minmax(180px, 1fr);
+    }
+    .news,
+    .courses,
+    .addfeed,
+    .profile,
+    .notifications,
+    .recent {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 300px) {
+    .linkedin {
+      grid-template:
+        "startpost" 100px
+        "main" 100px
+        "main" 200px
+        "main" 1fr /
+        minmax(180px, 1fr);
+    }
+    .news,
+    .courses,
+    .addfeed,
+    .profile,
+    .notifications,
+    .recent,
+    .menu {
+      display: none;
+    }
+  }
+  */
