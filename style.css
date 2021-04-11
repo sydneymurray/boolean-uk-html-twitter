@@ -96,34 +96,34 @@ body {
     justify-self: center;
   }
   .profile-dots{
-      grid-area:profile-dots;
-      width: 40px;
-      height: 40px;
-      background-color: black;
+    grid-area:profile-dots;
+    width: 40px;
+    height: 40px;
+    background-color: black;
   }
   .profile-address{
-      grid-area: profile-address;
-      background-color: black;
-      justify-self:left;
+    grid-area: profile-address;
+    background-color: black;
+    justify-self:left;
   }
   .profile-name{
-      grid-area: profile-name;
-      background-color: black;
-      justify-self: left;
-      font-weight: bold;
+    grid-area: profile-name;
+    background-color: black;
+    justify-self: left;
+    font-weight: bold;
   }
 
   /* Middle Column *****************************************/
   .middle-column{
-      grid-area: middle-column;
-      display:grid;
-      grid-template:
-      "home" 40px 
-      "main" auto
-      "article" auto /
-      600px;
-      border: 2px;
-      border-color: white;
+    grid-area: middle-column;
+    display:grid;
+    grid-template:
+    "home" 40px 
+    "main" auto
+    "article" auto /
+    600px;
+    border: 2px;
+    border-color: white;
   }
   /* home ***************************************************/  
   .home {
@@ -137,29 +137,108 @@ body {
     padding: 1.1rem;
     color: white;
     }
-.home-star{
+  .home-star{
     fill:rgb(29,161,242);
     width:25px;
     justify-self:right;
   }
    /* article ************************************************** */
-  .article{
+  article{
     grid-area: article;
     display: grid;
     grid-template:
-    "channel-icon profile-name profile-address" 20px
-    "channel-icon channel-text" auto
-    " . channel-video" auto
+    "channel-icon channel-info" 10px
+    "channel-icon channel-text" auto 
+    " . channel-content" auto 
     " . article-icons" auto/
-     40px 560px;
+    40px 560px;
+    padding-top: 1ch;
+    padding-bottom: 1ch;
   }
   .article-icons{
     grid-area: article-icons;
     display: grid;
     grid-template:
-    " quote-icon retweet-icon like-icon share-icon" 40px/
-      40px 40px 40px 40px; 
+    "quote-icon retweet-icon like-icon share-icon" 40px/
+      1fr 1fr 1fr 1fr; 
+ }
+  .channel-icon{
+    grid-area: channel-icon;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0px 0px;
+    background-color: black;
+    justify-self: center;  
+   }
+  .channel-name{
+    background-color: black;
+    justify-self: left;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 1ch;
+  }
+  .channel-address{
+    background-color: black;
+    justify-self:left;
+    display: inline-block;
+    padding-left: 1ch;
+    color: grey;
+ }
+  .channel-text{
+    grid-area: channel-text;
+    display: grid;
+    padding-top: 2ch;
+    padding-right: 1ch;
+    text-align: justify;
+    font-weight: normal;
+    font-size: 0.9rem;
+    padding-left: 1.3ch;
+ }
+  .channel-info{
+   grid-area: channel-info;
+   display: grid;
+   display: inline-block;
+   justify-self:left;
+   text-align: center;
 }
+ .quote-icon, .retweet-icon, .like-icon, .share-icon{
+   fill: white;
+   width: 20px;
+   height: 20px;
+ }
+ .channel-content{
+   grid-area: channel-content;
+   display: grid;
+   width: 560px;
+   position: relative;
+   width: 100%;
+   padding-bottom: 56.25%; 
+   height: 0;
+ }
+ .channel-video{
+   position: absolute;
+   top:0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+ }
+ .quote-icon{
+   grid-area: quote-icon;
+ } 
+ .retweet-icon{
+   grid-area:retweet-icon;
+ } 
+ .like-icon{
+   grid-area: like-icon;
+ } 
+ .share-icon{
+   grid-area: share-icon;
+ }
+
+
+
 
   /* main *************************************************** */
   .main {
