@@ -14,7 +14,7 @@ body {
     display: grid;
     grid-template:
       ". left-column middle-column right-column" auto /
-      60px 275px 600px 405px;
+      40px 275px 600px 405px;
     width: 1280px;
     height: 100vh;
   }
@@ -28,6 +28,7 @@ body {
     " . " 1fr 
     "profile" 60px/
      1fr;
+     border-right: 1px solid grey;
     }  
 /* menu ***************************************************/  
   .menu {
@@ -40,12 +41,14 @@ body {
     grid-area:main-menu-icons;
     display:grid;
     grid-template-columns: 50px 1fr;
-    grid-template-rows: 40px;
+    grid-template-rows: 25px;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1.0rem;
     color: lightgray;
     justify-self:left;
+    /* transition: 100ms; */
+    cursor: pointer;
   }
   .selected-icon{
     fill:blue;
@@ -69,14 +72,24 @@ body {
     border-radius: 2em;
     background-color:rgb(29,161,242);
     width: 20ch;
+    margin-top: 2ch;
   }
+  .main-menu:hover .main-menu-icons{
+    fill:rgb(29,161,242);
+  }
+  .main-menu:hover .menu-item{
+    color:rgb(29,161,242);
+  }
+  .main-menu-tweet:hover .main-menu-tweet{
+    background-color:rgb(25, 134, 201);
+ }
 
   /* Profile *************************************** */
   .profile{
     grid-area: profile;
     display: grid;
     grid-template: 
-    "profile-pic profile-name profiledots" 20px
+    "profile-pic profile-name profile-dots" 20px
     "profile-pic profile-address ." 20px /
     auto auto auto;
     height: 50px;
@@ -97,23 +110,28 @@ body {
   }
   .profile-dots{
     grid-area:profile-dots;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     background-color: black;
+    fill: grey;
   }
   .profile-address{
     grid-area: profile-address;
     background-color: black;
     justify-self:left;
+    color:grey;
+    font-size:0.9rem;
   }
   .profile-name{
     grid-area: profile-name;
     background-color: black;
     justify-self: left;
     font-weight: bold;
+    color:lightgrey;
   }
 
-  /* Middle Column *****************************************/
+
+    /* Middle Column *****************************************/
   .middle-column{
     grid-area: middle-column;
     display:grid;
@@ -148,26 +166,27 @@ body {
     display: grid;
     grid-template:
     "channel-icon channel-content" 1fr/
-    40px 560px;
+    60px 540px;
     padding-top: 1ch;
     padding-bottom: 1ch;
+    border-top: solid 1px grey;
+    border-bottom: solid 1px grey;
   }
   
   .tweet .channel-icon{
     grid-area: channel-icon;
-    display: grid;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
     object-position: 0px 0px;
     background-color: black;
-    justify-self: center;  
+    margin-left: 15px;
    }
   
    .tweet .channel-content{
     grid-area: channel-content;
-    display: grid;
+    text-align: left;
     width: 560px;
     padding-top: 1ch;
     /*height: -moz-fit-content;*/
@@ -175,8 +194,8 @@ body {
   } 
   
   .tweet .channel-content .channel-info{
-    text-align: right;
     display: inline-block;
+    background-color: pink;
   }
   
   .tweet .channel-content .channel-name{
@@ -190,7 +209,6 @@ body {
   
   .tweet .channel-content .channel-address{
     background-color: black;
-    justify-self:left;
     display: inline-block;
     padding-left: 1ch;
     color: grey;
@@ -200,15 +218,14 @@ body {
     /*display: inline-block;*/
     grid-area: channel-text;
     display: grid;
-    padding-top: 2ch;
+    padding-top: 1ch;
     padding-right: 1ch;
     text-align: justify;
     font-weight: normal;
     font-size: 0.9rem;
     padding-left: 1.3ch;
-     padding-bottom: 5ch;
-    color: red;
-    
+    padding-bottom: 1ch;
+    width: 540px;
     /*height: -moz-fit-content; */
     /*background-color: pink;*/
  }
@@ -221,19 +238,22 @@ body {
  
  .tweet .channel-content .picture-content{
    grid-area: picture-content;
-   width: 560px;
-   border-radius: 20px;
-   border-color: white;
+   width: 540px;
+   border-radius: 10px;
+   border-color: solid grey;
    border-width: 1px;
    padding-left: 1ch;
+   overflow: hidden;
  }
 
-  .video-content{
-   height: -moz-fit-content;
-   width: 560px;
+ .tweet .channel-content .video-content{
+   /*height: -moz-fit-content;*/
+   width: 540px;
+   height: 405px;
+   overflow: hidden;
    border-radius: 10px;
-   background-color: pink;
- }
+   padding-left: 1ch;
+}
  .article-icons{
   grid-area: article-icons;
   display: grid;
