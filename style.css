@@ -119,8 +119,8 @@ body {
     display:grid;
     grid-template:
     "home" 40px 
-    "main" auto
-    "article" auto /
+    /* "main" auto */
+    "tweet" auto /
     600px;
     border: 2px;
     border-color: white;
@@ -142,28 +142,20 @@ body {
     width:25px;
     justify-self:right;
   }
-   /* article ************************************************** */
-  article{
-    grid-area: article;
+   /* article tweet ************************************************** */
+  .tweet{
+    grid-area: tweet;
     display: grid;
     grid-template:
-    "channel-icon channel-info" 10px
-    "channel-icon channel-text" auto 
-    " . channel-content" auto 
-    " . article-icons" auto/
+    "channel-icon channel-content" 1fr/
     40px 560px;
     padding-top: 1ch;
     padding-bottom: 1ch;
   }
-  .article-icons{
-    grid-area: article-icons;
-    display: grid;
-    grid-template:
-    "quote-icon retweet-icon like-icon share-icon" 40px/
-      1fr 1fr 1fr 1fr; 
- }
-  .channel-icon{
+  
+  .tweet .channel-icon{
     grid-area: channel-icon;
+    display: grid;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -172,21 +164,40 @@ body {
     background-color: black;
     justify-self: center;  
    }
-  .channel-name{
+  
+   .tweet .channel-content{
+    grid-area: channel-content;
+    display: grid;
+    width: 560px;
+    padding-top: 1ch;
+    /*height: -moz-fit-content;*/
+
+  } 
+  
+  .tweet .channel-content .channel-info{
+    text-align: right;
+    display: inline-block;
+  }
+  
+  .tweet .channel-content .channel-name{
     background-color: black;
     justify-self: left;
     font-weight: bold;
     display: inline-block;
     padding-left: 1ch;
+    display: inline-block;
   }
-  .channel-address{
+  
+  .tweet .channel-content .channel-address{
     background-color: black;
     justify-self:left;
     display: inline-block;
     padding-left: 1ch;
     color: grey;
+    display: inline-block;
  }
-  .channel-text{
+  .tweet .channel-content .channel-text{
+    /*display: inline-block;*/
     grid-area: channel-text;
     display: grid;
     padding-top: 2ch;
@@ -195,35 +206,41 @@ body {
     font-weight: normal;
     font-size: 0.9rem;
     padding-left: 1.3ch;
+     padding-bottom: 5ch;
+    color: red;
+    
+    /*height: -moz-fit-content; */
+    /*background-color: pink;*/
  }
-  .channel-info{
-   grid-area: channel-info;
-   display: grid;
-   display: inline-block;
-   justify-self:left;
-   text-align: center;
-}
+
  .quote-icon, .retweet-icon, .like-icon, .share-icon{
    fill: white;
    width: 20px;
    height: 20px;
  }
- .channel-content{
-   grid-area: channel-content;
-   display: grid;
+ 
+ .tweet .channel-content .picture-content{
+   grid-area: picture-content;
    width: 560px;
-   position: relative;
-   width: 100%;
-   padding-bottom: 56.25%; 
-   height: 0;
+   border-radius: 20px;
+   border-color: white;
+   border-width: 1px;
+   padding-left: 1ch;
  }
- .channel-video{
-   position: absolute;
-   top:0;
-   left: 0;
-   width: 100%;
-   height: 100%;
+
+  .video-content{
+   height: -moz-fit-content;
+   width: 560px;
+   border-radius: 10px;
+   background-color: pink;
  }
+ .article-icons{
+  grid-area: article-icons;
+  display: grid;
+  grid-template:
+  "quote-icon retweet-icon like-icon share-icon" 40px/
+    1fr 1fr 1fr 1fr; 
+}
  .quote-icon{
    grid-area: quote-icon;
  } 
