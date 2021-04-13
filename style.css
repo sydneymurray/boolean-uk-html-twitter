@@ -19,6 +19,7 @@ body {
     height: 100vh;
   }
 
+
 /* Left Column ********************************************/
 .left-column{
     grid-area: left-column;
@@ -96,7 +97,8 @@ body {
     background-color: black;
     padding-bottom: 20px;
     align-self:top;
-    margin-bottom:500px;
+    border-radius:5%;
+    /*margin-bottom:500px;*/
   }
   .profile-pic{ 
     grid-area: profile-pic;
@@ -129,6 +131,9 @@ body {
     font-weight: bold;
     color:lightgrey;
   }
+  .profile:hover .profile{
+    background-color: rgb(2, 2, 75);
+  }
 
 
     /* Middle Column *****************************************/
@@ -136,36 +141,94 @@ body {
     grid-area: middle-column;
     display:grid;
     grid-template:
-    "home" 40px 
-    /* "main" auto */
+    "home" 70px 
+    "main" 120px
     "tweet" auto /
     600px;
     border: 2px;
     border-color: white;
   }
-  /* home ***************************************************/  
-  .home {
-    grid-area: home;
+
+    /* home ***************************************************/  
+    .home {
+      grid-area: home;
+      display: grid;
+      grid-template:
+      "home-text . home-star" 100px/
+       6ch 1fr 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1.1rem;
+      color: white;
+      margin-bottom: 1ch;
+      border: 1px solid grey;
+    }
+    .home-star{
+      grid-area: home-star;
+      fill:rgb(29,161,242);
+      width:25px;
+      justify-self:right;
+    }
+    .home-text{
+      grid-area: home-text;
+    }
+
+  /* Main ***************************************************/
+  .main{
+    grid-area: main;
     display: grid;
     grid-template:
-    "home-text . home-star" 40px/
-     6ch 1fr 40px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 1.1rem;
-    color: white;
+    "profile-pic tweet-input tweet-input" 40px
+    ". profile-icons tweet-button" 20px/
+    60px 200px 340px;
+    border-bottom: 1px solid grey;
+  
     }
-  .home-star{
-    fill:rgb(29,161,242);
-    width:25px;
-    justify-self:right;
+  .tweet-input{
+    grid-area: tweet-input;
+    background-color: black;
+    color: grey;
+    width:540px;
+    height: 4ch;
+    text-align: left;
+    padding-top:2ch;
+    padding-left: 2ch;
   }
-   /* article tweet ************************************************** */
+  .profile-icons{
+    grid-area: profile-icons;
+  }
+  .profile-list-icons{
+    fill: rgb(29,161,242);
+    width: 20px;
+    height: 20px;
+  }
+
+  .profile-icons li{
+    display: inline-block;
+    padding:0.9ch;
+    margin-top:2ch;
+  }
+  .tweet-button{
+    grid-area:tweet-button;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom:2rem;
+
+    border-radius: 2em;
+    background-color:rgba(29, 160, 242, 0.527);
+    width: 8ch;
+    margin: 2ch;
+    justify-self: right;
+}
+   
+  /* article tweet ************************************************** */
   .tweet{
     grid-area: tweet;
     display: grid;
     grid-template:
-    "channel-icon channel-content" 1fr/
+    "channel-icon channel-content" 1fr
+    " . tweet-icons" 30px/
     60px 540px;
     padding-top: 1ch;
     padding-bottom: 1ch;
@@ -193,6 +256,7 @@ body {
 
   } 
   
+  /* channel content **********************/   
   .tweet .channel-content .channel-info{
     display: inline-block;
     background-color: pink;
@@ -230,6 +294,7 @@ body {
     /*background-color: pink;*/
  }
 
+ /* tweet icons ***************************** */
  .quote-icon, .retweet-icon, .like-icon, .share-icon{
    fill: white;
    width: 20px;
@@ -261,30 +326,61 @@ body {
   "quote-icon retweet-icon like-icon share-icon" 40px/
     1fr 1fr 1fr 1fr; 
 }
- .quote-icon{
-   grid-area: quote-icon;
- } 
- .retweet-icon{
-   grid-area:retweet-icon;
- } 
- .like-icon{
-   grid-area: like-icon;
- } 
- .share-icon{
-   grid-area: share-icon;
- }
+
+.tweet .tweet-icons li{
+  display: inline-block;
+  padding-left: 4ch;
+  padding-right: 4ch;
+}
+.tweet .tweet-numbers{
+  color: grey;
+  font-size:0.75rem;
+  text-align: center;
+}
+.tweet .tweet-icon svg{
+  fill: grey;
+  align-content: center;
+  border-radius:50%;
+}
+.tweet .tweet-icon-quote:hover .quote-icon{
+  fill: rgba(29, 161, 242);
+} 
+.tweet .tweet-icon-quote:hover .tweet-numbers{
+  color: rgba(29, 161, 242);
+} 
+
+.tweet .tweet-icon-retweet:hover .retweet-icon{
+  fill: rgb(23, 191, 99);
+} 
+.tweet .tweet-icon-retweet:hover .tweet-numbers{
+  color: rgb(23, 191, 99);
+} 
+
+.tweet .tweet-icon-like:hover .like-icon{
+  fill: rgba(224, 36, 94);
+} 
+.tweet .tweet-icon-like:hover .tweet-numbers{
+  color: rgba(224, 36, 94);
+} 
+
+.tweet .tweet-icon-share:hover .share-icon{
+  fill: rgba(29, 161, 242);
+} 
+.tweet .tweet-icon-share:hover .tweet-numbers{
+  color: rgba(29, 161, 242);
+} 
 
 
-
-
-  /* main *************************************************** */
-  .main {
-    grid-area: main;
-    background-color: #10abe950;
-  }
   /* article ************************************************** */
 
-  /* Right Column ********************************************** 
+  /* Right Column ********************************************** */
+  .right-column{
+    grid-area: right-column;
+    display: grid;
+    border-left: 1px solid grey;
+    
+  }
+  /*
    search ********************************* 
   .search {
     grid-area: search;
@@ -318,49 +414,13 @@ body {
         "recent main" 1fr /
         160px minmax(180px, 1fr);
     }
-    .news,
-    .courses,
-    .addfeed {
-      display: none;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .linkedin {
-      grid-template:
-        "menu " 40px
-        "startpost" 100px
-        "main" 100px
-        "main" 200px
-        "main" 1fr /
-        minmax(180px, 1fr);
-    }
-    .news,
-    .courses,
-    .addfeed,
-    .profile,
-    .notifications,
-    .recent {
-      display: none;
-    }
-  }
   @media screen and (max-width: 300px) {
     .linkedin {
       grid-template:
         "startpost" 100px
-        "main" 100px
-        "main" 200px
-        "main" 1fr /
+
         minmax(180px, 1fr);
     }
-    .news,
-    .courses,
-    .addfeed,
-    .profile,
-    .notifications,
-    .recent,
-    .menu {
-      display: none;
-    }
+
   }
   */
