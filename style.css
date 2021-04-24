@@ -142,8 +142,7 @@ body {
     display:grid;
     grid-template:
     "home" 70px 
-    "main" 120px
-    "tweet" auto /
+    "main" 120px /
     600px;
     border: 2px;
     border-color: white;
@@ -182,8 +181,7 @@ body {
     ". profile-icons tweet-button" 20px/
     60px 200px 340px;
     border-bottom: 1px solid grey;
-  
-    }
+  }
   .tweet-input{
     grid-area: tweet-input;
     background-color: black;
@@ -224,12 +222,11 @@ body {
    
   /* article tweet ************************************************** */
   .tweet{
-    grid-area: tweet;
     display: grid;
     grid-template:
     "channel-icon channel-content" 1fr
     " . tweet-icons" 30px/
-    60px 540px;
+    60px 530px;
     padding-top: 1ch;
     padding-bottom: 1ch;
     border-top: solid 1px grey;
@@ -250,7 +247,7 @@ body {
    .tweet .channel-content{
     grid-area: channel-content;
     text-align: left;
-    width: 560px;
+    width: 550px;
     padding-top: 1ch;
     /*height: -moz-fit-content;*/
 
@@ -289,7 +286,7 @@ body {
     font-size: 0.9rem;
     padding-left: 1.3ch;
     padding-bottom: 1ch;
-    width: 540px;
+    width: 520px;
     /*height: -moz-fit-content; */
     /*background-color: pink;*/
  }
@@ -303,7 +300,7 @@ body {
  
  .tweet .channel-content .picture-content{
    grid-area: picture-content;
-   width: 540px;
+   width: 520px;
    border-radius: 10px;
    border-color: solid grey;
    border-width: 1px;
@@ -313,11 +310,12 @@ body {
 
  .tweet .channel-content .video-content{
    /*height: -moz-fit-content;*/
-   width: 540px;
-   height: 405px;
+   width: 520px;
+   height: 390px;
    overflow: hidden;
-   border-radius: 10px;
+   border-radius: 20px;
    padding-left: 1ch;
+   border: 1px solid grey;
 }
  .article-icons{
   grid-area: article-icons;
@@ -370,21 +368,36 @@ body {
   color: rgba(29, 161, 242);
 } 
 
-
-  /* article ************************************************** */
-
-  /* Right Column ********************************************** */
+/* Right Column ********************************************** */
   .right-column{
     grid-area: right-column;
     display: grid;
     border-left: 1px solid grey;
-    
+    padding-left: 20px;
   }
-  /*
-   search ********************************* 
+
+  /* search ********************************* */
   .search {
-    grid-area: search;
-    background-color: #c1e91050;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border-radius: 2em;
+    margin: 5px;
+    background-color: #1b1d1f;
+    height: 45px;
+    width: 350px;
+  }
+
+  .magnifier{
+    width: 25px;
+    fill: white;
+    margin-left:15px;
+    margin-top: 8px;
+  }
+  .search .search-twitter{
+    padding-top: 13px;
+    padding-right: 180px;
+    color: grey;
+    font-size: 0.9rem;;
   }
   /* whats happening ***************************************************
   .whats-happening {
