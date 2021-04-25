@@ -250,13 +250,21 @@ body {
     width: 550px;
     padding-top: 1ch;
     /*height: -moz-fit-content;*/
+  }  
 
-  } 
-  
   /* channel content **********************/   
   .tweet .channel-content .channel-info{
-    display: inline-block;
-    background-color: pink;
+    Display: grid;
+    grid-template:
+    "channel-name channel-address . three-dots" auto/
+    auto auto 1fr auto;
+  }
+  .three-dots{
+    grid-area: three-dots;
+    fill: grey;
+    color: grey;
+    width: 40px;
+    background: red:
   }
   
   .tweet .channel-content .channel-name{
@@ -372,12 +380,18 @@ body {
   .right-column{
     grid-area: right-column;
     display: grid;
+    grid-template:
+    " search " auto
+    " whats-happening-container " auto
+    " . " 1fr/
+      auto;
     border-left: 1px solid grey;
     padding-left: 20px;
   }
 
   /* search ********************************* */
   .search {
+    grid-area: search;
     display: grid;
     grid-template-columns: auto 1fr;
     border-radius: 2em;
@@ -399,11 +413,98 @@ body {
     color: grey;
     font-size: 0.9rem;;
   }
-  /* whats happening ***************************************************
-  .whats-happening {
-    grid-area: whats-happening;
-    background-color: #ac10e950;
+  /* whats happening ************************************************/
+  .whats-happening-container {
+    grid-area: whats-happening-container;
+    display: grid;
+    grid-template-rows: auto;
+    background-color: #1b1d1f;
+    border-radius: 10px;
+    width: 350px;
+    margin: 5px;
   }
+  .whats-happening{
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align:left;
+    padding-left: 2ch;
+    margin-top: 1.5ch;
+    margin-bottom: 1.5ch;
+  }
+  .whats-happening-article{
+    display: grid;
+    grid-template:
+    "wh-comment wh-comment wh-image"
+    "wh-heading wh-heading wh-image"
+    "wh-comment2 wh-comment2 wh-image" auto/
+     100px 150px 60px;
+     border-top: 1px solid grey;
+     justify-items: left;
+     padding: 1ch;
+     text-justify: left;
+     grid-gap: 1ch;
+  }
+  .wh-comment{
+    grid-area: wh-comment;
+    font-size: 0.7rem;
+    margin-top: 2ch;
+    color: grey;
+  }
+  .wh-comment2{
+    grid-area: wh-comment2;
+    font-size: 0.7rem;
+    margin-top: 1ch;
+    color: grey;
+  }
+  .wh-heading{
+    grid-area: wh-heading;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: justify;
+  }
+  .trending{
+    color: rgb(44, 126, 219);
+  }
+  .wh-image{
+    grid-area: wh-image;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-top: 1ch;
+  }
+  .whats-happening-container {
+    grid-area: whats-happening-container;
+    display: grid;
+    grid-template-rows: auto;
+    background-color: #1b1d1f;
+    border-radius: 10px;
+    width: 350px;
+    margin: 5px;
+  }
+  
+  /* MESSAGES SECTION ***********************************************/
+  .messages{
+    
+    display: grid;
+    grid-template-rows: auto;
+    background-color:black;
+    color: white;
+    border-radius: 10px;
+    width: 450px;
+    margin: 5px;
+    border: 1px solid grey;
+    display: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: yellow;
+  }
+  .message-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: red;
+  }
+
+
 
   /* who to follow *************************************************** 
   .who-to-follow {
