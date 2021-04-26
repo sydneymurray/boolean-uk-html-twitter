@@ -484,7 +484,7 @@ body {
   
   /* MESSAGES SECTION ***********************************************/
   .messages{
-    
+    position: absolute;
     display: grid;
     grid-template-rows: auto;
     background-color:black;
@@ -496,45 +496,33 @@ body {
     display: absolute;
     bottom: 0px;
     right: 0px;
-    background-color: yellow;
+    border: 1px solid grey;
+    box-shadow: 2px 2px 4px grey;
   }
   .message-title{
+    display: grid;
+    grid-template:
+    "message-heading . envelope-icon down-arrow" auto/
+    auto 1fr auto auto;
+    padding: 2ch;
+  }
+  .message-heading{
+    grid-area: message-heading;
     font-size: 1.5rem;
     font-weight: bold;
-    background-color: red;
+  }
+  .envelope-icon{
+    grid-area: envelope-icon;
+    width: 30px;
+    fill:rgb(29,161,242);
+    margin-right: 1ch;
+  }
+  .down-arrow{
+    grid-area: down-arrow;
+    width: 30px;
+    fill:rgb(29,161,242);
   }
 
 
 
-  /* who to follow *************************************************** 
-  .who-to-follow {
-    grid-area: who-to-follow;
-    background-color: #e910e950;
-  }
-  /* terms of service **************************************************** 
-  .terms-of-service {
-    grid-area: terms-of-service;
-    background-color: #1026e950;
-  }
  
-  
-  @media screen and (max-width: 900px) {
-    .linkedin {
-      grid-template:
-        "menu menu " 40px
-        "profile startpost" 100px
-        "profile main" 100px
-        "notifications main" 200px
-        "recent main" 1fr /
-        160px minmax(180px, 1fr);
-    }
-  @media screen and (max-width: 300px) {
-    .linkedin {
-      grid-template:
-        "startpost" 100px
-
-        minmax(180px, 1fr);
-    }
-
-  }
-  */
